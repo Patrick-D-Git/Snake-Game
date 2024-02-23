@@ -44,3 +44,4 @@ class Snake:
 
         if self.head.heading() != 180.0:
             self.head.setheading(0)
+
