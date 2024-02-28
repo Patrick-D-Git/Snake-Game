@@ -21,13 +21,23 @@ class Scoreboard(Turtle):
 
     def refresh(self):
         self.clear()
+        self.load_highscore()
         self.write(f"Score: {self.score} High Score: {self.high_score}", align=ALIGNMENT, font=FONT)
 
     def reset_highscore(self):
         if self.score > self.high_score:
             self.high_score = self.score
+            self.save_highscore()
         self.score = 0
         self.refresh()
+
+    def save_highscore(self, filename="data.txt"):
+        with open(filename, "w") as file:
+            file.write(str(self.high_score))
+
+    def load_highscore(self, filename="data.txt"):
+        with open(filename, "r") as file:
+            self.high_score = int(file.read())
 
     # def game_over(self):
     #     self.goto(0, 0)
