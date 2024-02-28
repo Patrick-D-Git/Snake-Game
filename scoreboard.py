@@ -11,8 +11,8 @@ class Scoreboard(Turtle):
         self.color("white")
         self.penup()
         self.goto(0, 270)
-        self.score = 0
         self.high_score = 0
+        self.score = 0
         self.refresh()
 
     def add_score(self):
@@ -39,6 +39,3 @@ class Scoreboard(Turtle):
         with open(filename, "r") as file:
             self.high_score = int(file.read())
 
-    # def game_over(self):
-    #     self.goto(0, 0)
-    #     self.write(f"GAME OVER", align=ALIGNMENT, font=FONT)
